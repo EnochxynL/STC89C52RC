@@ -109,3 +109,7 @@ Output file command line:
         output hex file:
                 %TOOL_DIR%\bin\packihx.exe .\build\Release\STC89C52RC.ihx>.\build\Release\STC89C52RC.hex
 ```
+
+# PlatformIO 例程
+
+https://github.com/platformio/platform-intel_mcs51/tree/master/examples
