@@ -17,7 +17,7 @@
 
 //=========================================
 
-// ·µ»ØÖµº¬Òå
+// è¿”å›žå€¼å«ä¹‰
 #define DHT11_DONE 0
 #define DHT11_CONNECT_ERR 1
 #define DHT11_VERIFY_ERR 2

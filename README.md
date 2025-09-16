@@ -76,3 +76,36 @@ void main(void)
 - FLASH SIZE: 8192 Bytes
 
 要修改上述参数，请到 `构建器选项 -> Other Global Options` 中进行修改。
+
+观察EIDE的构建命令得到SDCC编译器参数
+
+```powershell
+C:\Users\enoch\.vscode\extensions\cl.eide-3.25.3\res\tools\win32\unify_builder\unify_builder.exe -p d:\Github\STC89C52RC1\build\Release\builder.params --only-dump-args
+App Info:
+
+app_name: unify_builder
+app_version: v3.10.4.0
+os: win32
+codepage: 936
+
+C command line (sdcc):
+
+-c --std-c99 -Isrc -Ilib -Idriver -DCLOCK=1 -mmcs51 --opt-code-speed --iram-size 256 --xram-size 0 --code-size 8192 -MMD -o .\build\Release\.obj\${c}.rel ${c}
+
+CPP command line (sdcc):
+
+-c -Isrc -Ilib -Idriver -DCLOCK=1 -mmcs51 --opt-code-speed --iram-size 256 --xram-size 0 --code-size 8192 -MMD -o .\build\Release\.obj\${cpp}.rel ${cpp}
+
+ASM command line (sdas8051):
+
+-plosgffw -Isrc -Ilib -Idriver .\build\Release\.obj\${asm}.rel ${asm}
+
+Linker command line (sdcc):
+
+--out-fmt-ihx -mmcs51 --iram-size 256 --xram-size 0 --code-size 8192
+
+Output file command line:
+
+        output hex file:
+                %TOOL_DIR%\bin\packihx.exe .\build\Release\STC89C52RC.ihx>.\build\Release\STC89C52RC.hex
+```

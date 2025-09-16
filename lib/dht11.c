@@ -1,6 +1,6 @@
 #include <dht11.h>
 
-void _Delay10us() // @16MHz, Èí¼şÑÓÊ±£¬ÓÉ STC-ISP ¹¤¾ßÉú³É
+void _Delay10us() // @16MHz, è½¯ä»¶å»¶æ—¶ï¼Œç”± STC-ISP å·¥å…·ç”Ÿæˆ
 {
     unsigned char i;
     _nop_();
@@ -16,7 +16,7 @@ uint8_t DHT11_Measure(DHT11_Data *dat)
     uint8_t i, j, errCode = DHT11_DONE;
 
     DATA_WRITE(0);
-    _Delay(20); // ¿ªÊ¼ĞÅºÅ 20 ms
+    _Delay(20); // å¼€å§‹ä¿¡å· 20 ms
     DATA_WRITE(1);
 
     // 60 us
@@ -29,7 +29,7 @@ uint8_t DHT11_Measure(DHT11_Data *dat)
 
     if (DATA_READ() == 0)
     {
-        while (DATA_READ() == 0) // µÈ´ı DHT11 À­¸ß
+        while (DATA_READ() == 0) // ç­‰å¾… DHT11 æ‹‰é«˜
             ;
 
         while (DATA_READ() == 1)

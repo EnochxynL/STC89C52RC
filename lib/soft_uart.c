@@ -3,7 +3,7 @@
 void BitTime(void)
 {
     uint16_t i;
-    i = (CLOCK * 104) / 12 - 1; //¸ù¾ÝÖ÷Ê±ÖÓÀ´¼ÆËãÎ»Ê±¼ä
+    i = (CLOCK * 104) / 12 - 1; //æ ¹æ®ä¸»æ—¶é’Ÿæ¥è®¡ç®—ä½æ—¶é—´
     while (--i)
         ;
 }
