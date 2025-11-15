@@ -10,8 +10,8 @@ void DelayMS(unsigned int ms) {
     }
 }
 
-
-#define COMMON_CATHODE 1  // P0接共阴数码管：1；若是共阳，改为0
+#define PIN_DIGIT P2
+#define COMMON_CATHODE 1  // PIN_DIGIT接共阴数码管：1；若是共阳，改为0
 // 共阴数码管段码(0~9): a b c d e f g dp
 unsigned char __code SEG_CC[10] = {
     0x3F, // 0
@@ -31,13 +31,13 @@ void DisplayDigit(unsigned char ch) {
     if (ch >= '0' && ch <= '9') {
         seg = SEG_CC[ch - '0'];
 #if COMMON_CATHODE
-        P0 = seg;           // 共阴：段码直接输出
+        PIN_DIGIT = seg;           // 共阴：段码直接输出
 #else
-        P0 = ~seg;          // 共阳：段码取反输出
+        PIN_DIGIT = ~seg;          // 共阳：段码取反输出
 #endif
     } else {
-        // 非数字字符：原样输出到P0，便于调试（可能不是有效段码）
-        P0 = ch;
+        // 非数字字符：原样输出到PIN_DIGIT，便于调试（可能不是有效段码）
+        PIN_DIGIT = ch;
     }
 }
 
@@ -75,9 +75,9 @@ void UART_ISR(void) __interrupt(4) {
 
 void main(void) {
 #if COMMON_CATHODE
-    P0 = 0x00;              // 共阴默认灭
+    PIN_DIGIT = 0x00;              // 共阴默认灭
 #else
-    P0 = 0xFF;              // 共阳默认灭
+    PIN_DIGIT = 0xFF;              // 共阳默认灭
 #endif
     unsigned char i;
     const unsigned char tx[10] = { '0','1','2','3','4','5','6','7','8','9' };
