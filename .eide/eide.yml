@@ -20,7 +20,8 @@ targets:
     cppPreprocessAttrs:
       defineList:
         - CLOCK=16
-      incList: []
+      incList:
+        - include
       libList: []
     excludeList: []
     toolchain: SDCC
