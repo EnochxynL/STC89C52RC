@@ -1,0 +1,49 @@
+version: "4.1"
+name: mcs51_dht11_sdcc_quickstart
+type: C51
+deviceName: null
+packDir: null
+srcDirs:
+  - src
+  - lib
+  - driver
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: a16c23e76efe939bc70740982f7a8e11
+targets:
+  Release:
+    cppPreprocessAttrs:
+      defineList:
+        - CLOCK=16
+      incList: []
+      libList: []
+    excludeList: []
+    toolchain: SDCC
+    toolchainConfigMap:
+      SDCC:
+        options:
+          version: 3
+          afterBuildTasks: []
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c99
+          global:
+            device: mcs51
+            misc-controls: --iram-size 256 --xram-size 0 --code-size 8192
+            optimize-type: speed
+          linker:
+            $mainFileName: main
+            output-format: hex
+    uploadConfigMap:
+      stcgal:
+        bin: ""
+        eepromImgPath: undefined
+        extraOptions: ""
+        options: ./.EIDE/stc.flash.json
+    uploader: stcgal
