@@ -63,7 +63,7 @@ void uart_sendStr(char *p)
 	}
 }
 
-void answer_3_8()
+void main()
 {
 	STC89_compatibility_for_STC15();
 	
